@@ -14,6 +14,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -53,7 +54,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		@Bean
 		public CorsConfigurationSource corsConfigurationSource() {
 			CorsConfiguration corsConfig = new CorsConfiguration();
-			corsConfig.setAllowedOrigins(Arrays.asList("*"));
+			corsConfig.setAllowedOrigins(Arrays.asList("\r\n"
+					+ "http://localhost:8765"));
 			corsConfig.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "PATCH"));
 			corsConfig.setAllowCredentials(true);
 			corsConfig.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
